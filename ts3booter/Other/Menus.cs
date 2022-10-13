@@ -23,7 +23,7 @@ namespace ts3booter.Other
         {
             Console.ResetColor();
             Console.Write("["); Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("!"); Console.ResetColor();
+            Console.Write("*"); Console.ResetColor();
             Console.Write("] "); Console.ForegroundColor = color;
             Console.WriteLine(message);
             Console.ResetColor();
