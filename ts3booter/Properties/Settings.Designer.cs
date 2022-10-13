@@ -82,5 +82,53 @@ namespace ts3booter.Properties {
                 this["l4r"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string l7h {
+            get {
+                return ((string)(this["l7h"]));
+            }
+            set {
+                this["l7h"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int l7p {
+            get {
+                return ((int)(this["l7p"]));
+            }
+            set {
+                this["l7p"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int l7t {
+            get {
+                return ((int)(this["l7t"]));
+            }
+            set {
+                this["l7t"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string l7m {
+            get {
+                return ((string)(this["l7m"]));
+            }
+            set {
+                this["l7m"] = value;
+            }
+        }
     }
 }
