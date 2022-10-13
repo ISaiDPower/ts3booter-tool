@@ -47,11 +47,11 @@ retry_select_menu: Other.Menus.showTitle();
                 case ConsoleKey.D0:
                     Layers.Layer4.Start(booter); goto retry_select_menu;
                 case ConsoleKey.D1:
-                  //  Layer7(booter); goto retry_select_menu;
+                    Layers.Layer7.Start(booter); goto retry_select_menu;
                 case ConsoleKey.NumPad0:
                     Layers.Layer4.Start(booter); goto retry_select_menu;
                 case ConsoleKey.NumPad1:
-                   // Layer7(booter); goto retry_select_menu;
+                    Layers.Layer7.Start(booter); goto retry_select_menu;
                 case ConsoleKey.D2:
                     System.Diagnostics.Process.Start("https://ts3booter.net"); goto retry_select_menu;
                 case ConsoleKey.NumPad2:
